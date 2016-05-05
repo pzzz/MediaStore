@@ -1,0 +1,1509 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.eclipse.emf.emfstore.common.model:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:org.eclipse.emf.emfstore.common.model="http://eclipse.org/emf/emfstore/common/model" xmlns:org.unicase.model.component="http://unicase.org/model/component" xmlns:org.unicase.model.diagram="http://unicase.org/model/diagram" xmlns:org.unicase.model.document="http://unicase.org/model/document" xmlns:org.unicase.model.organization="http://unicase.org/model/organization" xmlns:org.unicase.model.rationale="http://unicase.org/model/rationale" xmlns:org.unicase.model.requirement="http://unicase.org/model/requirement" xmlns:org.unicase.model.task="http://unicase.org/model/task">
+  <modelElements xsi:type="org.unicase.model.document:CompositeSection" name="Requirements Analysis Document" description="">
+    <subsections xsi:type="org.unicase.model.document:CompositeSection" name="Requirements" description="">
+      <subsections xsi:type="org.unicase.model.document:LeafSection" name="Functional Requirements" description="">
+        <modelElements xsi:type="org.unicase.model.requirement:FunctionalRequirement" name="Download" description="Users can download audio files from the Media Store after selecting them."/>
+        <modelElements xsi:type="org.unicase.model.requirement:FunctionalRequirement" name="Selecting Bitrate" description="Users can select the preferred bitrate while downloading the audio files.&#xA;"/>
+        <modelElements xsi:type="org.unicase.model.requirement:FunctionalRequirement" name="Compression" description="If a user selects more than one audio file to download, the files shall be compressed to one archive file before download.&#xA;"/>
+        <modelElements xsi:type="org.unicase.model.requirement:FunctionalRequirement" name="Upload" description="Users can also upload audio files to share them with other users.&#xA;"/>
+        <modelElements xsi:type="org.unicase.model.requirement:FunctionalRequirement" name="Specify Metadata" description="Users can specify metadata of an audio file, when uploading it.&#xA;"/>
+        <modelElements xsi:type="org.unicase.model.requirement:FunctionalRequirement" name="Browsing" description="Users can browse in the store and get a list of all available audio files.&#xA;"/>
+      </subsections>
+      <subsections xsi:type="org.unicase.model.document:LeafSection" name="Non-functional Requirements" description="">
+        <modelElements xsi:type="org.unicase.model.requirement:NonFunctionalRequirement" name="Response time" description="The response time shall be as low as possible, but less than 60 seconds for 95% of all requests for the expected workload, as introduced below. In the following, the response time is defined as the time span between arrival of a request in a component and the respond of the component to that request.&#xA;"/>
+        <modelElements xsi:type="org.unicase.model.requirement:NonFunctionalRequirement" name="Component structure" description="The components of the Media Store shall be loosely coupled to facilitate evolution. They should communicate with each other only using interfaces. This shall avoid that a change to a software component propagates through the system.&#xA;"/>
+        <modelElements xsi:type="org.unicase.model.requirement:NonFunctionalRequirement" name="Reuse of Components" description="Components that are developed from scratch for the Media Store shall be reusable in future projects, if appropriate.&#xA;"/>
+        <modelElements xsi:type="org.unicase.model.requirement:NonFunctionalRequirement" name="Using existing components" description="The Media Store shall be, if possible, implemented using reused components from third parties to save development costs and future maintenance effort. Thus, when designing the interfaces between components, existing components shall be taken into account.&#xA;"/>
+        <modelElements xsi:type="org.unicase.model.requirement:NonFunctionalRequirement" name="Authenticated Access" description="Only authenticated users should access the system and thus audio files. Furtheremore, passwords should be encrypted before being stored in the database.&#xA;"/>
+        <modelElements xsi:type="org.unicase.model.requirement:NonFunctionalRequirement" name="Copyright" description="Copyright is an important concern and the Media Store shall comply to respective laws and regulations. Therefore any copyright violation shall be detected. For example, an unauthorized download of copyrighted audio files should be avoided.&#xA;"/>
+      </subsections>
+    </subsections>
+    <subsections xsi:type="org.unicase.model.document:LeafSection" name="Usecases">
+      <modelElements xsi:type="org.unicase.model.requirement:Actor" name="End User" initiatedUseCases="//@modelElements.0/@subsections.1/@modelElements.1 //@modelElements.0/@subsections.1/@modelElements.2 //@modelElements.0/@subsections.1/@modelElements.3 //@modelElements.0/@subsections.1/@modelElements.4 //@modelElements.0/@subsections.1/@modelElements.5"/>
+      <modelElements xsi:type="org.unicase.model.requirement:UseCase" name="Register User" description="Goal&#xA;Register a new user.&#xA;Preconditions&#xA;None&#xA;Main Success Scenario&#xA;&#xA;The user opens the web-interface.&#xA;The user clicks on register. &#xA;The user types in the needed information and specifies a password. &#xA;The user clicks on send registration. &#xA;" initiatingActor="//@modelElements.0/@subsections.1/@modelElements.0" precondition="">
+        <useCaseSteps name="The user opens the web-interface." userStep="true"/>
+        <useCaseSteps name="The user clicks on register. " userStep="true"/>
+        <useCaseSteps name="The user types in the needed information and specifies a password." userStep="true"/>
+        <useCaseSteps name="The user clicks on send registration." userStep="true"/>
+      </modelElements>
+      <modelElements xsi:type="org.unicase.model.requirement:UseCase" name="Login" description="Goal&#xA;Login into the system.&#xA;Preconditions&#xA;Registered User&#xA;Main Success Scenario&#xA;&#xA;The user opens the web-interface. &#xA;The user types in his login data. &#xA;The user clicks on login. &#xA;&#xA;" initiatingActor="//@modelElements.0/@subsections.1/@modelElements.0" precondition=""/>
+      <modelElements xsi:type="org.unicase.model.requirement:UseCase" name="Browse Files" description="Goal&#xA;Browsing through a list of all available files.&#xA;Preconditions&#xA;Login&#xA;Main Success Scenario&#xA;  &#xA;The user clicks on browse. &#xA;The user can browse through all files in the list. &#xA;&#xA;" initiatingActor="//@modelElements.0/@subsections.1/@modelElements.0" precondition=""/>
+      <modelElements xsi:type="org.unicase.model.requirement:UseCase" name="Download" description="Goal&#xA;The user downloads the desired files.&#xA;Preconditions&#xA;Browse Files&#xA;Main Success Scenario&#xA;  &#xA;The user selects the desired files. &#xA;The user clicks on download files. &#xA;The user chooses the path for saving the files. &#xA;The user clicks on save. &#xA;&#xA;" initiatingActor="//@modelElements.0/@subsections.1/@modelElements.0" precondition=""/>
+      <modelElements xsi:type="org.unicase.model.requirement:UseCase" name="Upload" description="Goal&#xA;The user uploads files with specified metadata.&#xA;Preconditions&#xA;Login&#xA;Main Success Scenario&#xA;&#xA;The user clicks on upload files. &#xA;The user searches for the respective file on its device. &#xA;The user clicks on upload. &#xA;The user specifies metadata to the uploaded file. &#xA;The user clicks on save.  &#xA;&#xA;" initiatingActor="//@modelElements.0/@subsections.1/@modelElements.0" precondition=""/>
+      <modelElements xsi:type="org.unicase.model.diagram:UseCaseDiagram" name="MediaStore Usecases" elements="//@modelElements.0/@subsections.1/@modelElements.0 //@modelElements.0/@subsections.1/@modelElements.1 //@modelElements.0/@subsections.1/@modelElements.2 //@modelElements.0/@subsections.1/@modelElements.3 //@modelElements.0/@subsections.1/@modelElements.4 //@modelElements.0/@subsections.1/@modelElements.5">
+        <gmfdiagram type="UnicaseUseCase" element="//@modelElements.0/@subsections.1/@modelElements.6" measurementUnit="Pixel">
+          <children xsi:type="notation:Shape" type="2001" element="//@modelElements.0/@subsections.1/@modelElements.0" fontName=".Helvetica Neue DeskInterface">
+            <children xsi:type="notation:DecorationNode" type="5001"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="125" y="172"/>
+          </children>
+          <children type="2002" element="//@modelElements.0/@subsections.1/@modelElements.1">
+            <children xsi:type="notation:DecorationNode" type="5002"/>
+            <styles xsi:type="notation:DescriptionStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <styles xsi:type="notation:FillStyle"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="320" y="64"/>
+          </children>
+          <children type="2002" element="//@modelElements.0/@subsections.1/@modelElements.2">
+            <children xsi:type="notation:DecorationNode" type="5002"/>
+            <styles xsi:type="notation:DescriptionStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <styles xsi:type="notation:FillStyle"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="320" y="148"/>
+          </children>
+          <children type="2002" element="//@modelElements.0/@subsections.1/@modelElements.3">
+            <children xsi:type="notation:DecorationNode" type="5002"/>
+            <styles xsi:type="notation:DescriptionStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <styles xsi:type="notation:FillStyle"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="320" y="232"/>
+          </children>
+          <children type="2002" element="//@modelElements.0/@subsections.1/@modelElements.4">
+            <children xsi:type="notation:DecorationNode" type="5002"/>
+            <styles xsi:type="notation:DescriptionStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <styles xsi:type="notation:FillStyle"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="320" y="312"/>
+          </children>
+          <children type="2002" element="//@modelElements.0/@subsections.1/@modelElements.5">
+            <children xsi:type="notation:DecorationNode" type="5002"/>
+            <styles xsi:type="notation:DescriptionStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <styles xsi:type="notation:FillStyle"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="320" y="400"/>
+          </children>
+          <styles xsi:type="notation:DiagramStyle"/>
+          <edges type="4002" source="//@modelElements.0/@subsections.1/@modelElements.6/@gmfdiagram/@children.0" target="//@modelElements.0/@subsections.1/@modelElements.6/@gmfdiagram/@children.1">
+            <children xsi:type="notation:DecorationNode" type="6002">
+              <layoutConstraint xsi:type="notation:Location" y="20"/>
+            </children>
+            <styles xsi:type="notation:RoutingStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <element xsi:nil="true"/>
+            <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[27, -14, -212, 84]$[169, -127, -70, -29]"/>
+          </edges>
+          <edges type="4002" source="//@modelElements.0/@subsections.1/@modelElements.6/@gmfdiagram/@children.0" target="//@modelElements.0/@subsections.1/@modelElements.6/@gmfdiagram/@children.2">
+            <children xsi:type="notation:DecorationNode" type="6002">
+              <layoutConstraint xsi:type="notation:Location" y="20"/>
+            </children>
+            <styles xsi:type="notation:RoutingStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <element xsi:nil="true"/>
+            <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[27, -3, -212, 11]$[169, -19, -70, -5]"/>
+          </edges>
+          <edges type="4002" source="//@modelElements.0/@subsections.1/@modelElements.6/@gmfdiagram/@children.0" target="//@modelElements.0/@subsections.1/@modelElements.6/@gmfdiagram/@children.3">
+            <children xsi:type="notation:DecorationNode" type="6002">
+              <layoutConstraint xsi:type="notation:Location" y="20"/>
+            </children>
+            <styles xsi:type="notation:RoutingStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <element xsi:nil="true"/>
+            <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[27, 10, -169, -70]$[169, 86, -27, 6]"/>
+            <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.19285714285714287,0.6666666666666666)"/>
+          </edges>
+          <edges type="4002" source="//@modelElements.0/@subsections.1/@modelElements.6/@gmfdiagram/@children.0" target="//@modelElements.0/@subsections.1/@modelElements.6/@gmfdiagram/@children.4">
+            <children xsi:type="notation:DecorationNode" type="6002">
+              <layoutConstraint xsi:type="notation:Location" y="20"/>
+            </children>
+            <styles xsi:type="notation:RoutingStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <element xsi:nil="true"/>
+            <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[24, 20, -183, -151]$[193, 180, -14, 9]"/>
+            <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.2714285714285714,0.85)"/>
+          </edges>
+          <edges type="4002" source="//@modelElements.0/@subsections.1/@modelElements.6/@gmfdiagram/@children.0" target="//@modelElements.0/@subsections.1/@modelElements.6/@gmfdiagram/@children.5">
+            <children xsi:type="notation:DecorationNode" type="6002">
+              <layoutConstraint xsi:type="notation:Location" y="20"/>
+            </children>
+            <styles xsi:type="notation:RoutingStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <element xsi:nil="true"/>
+            <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[19, 22, -197, -221]$[185, 245, -31, 2]"/>
+            <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.18867924528301888,0.45)"/>
+            <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.22142857142857142,0.55)"/>
+          </edges>
+        </gmfdiagram>
+      </modelElements>
+    </subsections>
+  </modelElements>
+  <modelElements xsi:type="org.unicase.model.document:CompositeSection" name="Project Management Document" description="">
+    <subsections xsi:type="org.unicase.model.document:LeafSection" name="Stakeholders">
+      <modelElements xsi:type="org.unicase.model.organization:User" name="Ren&#xe9; Hahn" assignments="//@modelElements.1/@subsections.2/@modelElements.0 //@modelElements.1/@subsections.2/@modelElements.2" firstName=""/>
+      <modelElements xsi:type="org.unicase.model.organization:User" name="Peter Schuller" assignments="//@modelElements.1/@subsections.2/@modelElements.1" firstName=""/>
+    </subsections>
+    <subsections xsi:type="org.unicase.model.document:LeafSection" name="Issues">
+      <modelElements xsi:type="org.unicase.model.rationale:Issue" name="Response time" description="The response time of the system is too high." annotatedModelElements="//@modelElements.1/@subsections.2/@modelElements.0 //@modelElements.1/@subsections.2/@modelElements.1 //@modelElements.1/@subsections.2/@modelElements.2" criteria="//@modelElements.1/@subsections.3/@modelElements.0 //@modelElements.0/@subsections.0/@subsections.1/@modelElements.0"/>
+    </subsections>
+    <subsections xsi:type="org.unicase.model.document:LeafSection" name="Workpackages" description="">
+      <modelElements xsi:type="org.unicase.model.task:WorkPackage" name="Create design alternative with AudioWatermarking" annotations="//@modelElements.1/@subsections.1/@modelElements.0" annotatedModelElements="//@modelElements.3/@subsections.0/@subsections.0" assignee="//@modelElements.1/@subsections.0/@modelElements.0"/>
+      <modelElements xsi:type="org.unicase.model.task:WorkPackage" name="Create design alternative with Cache" annotations="//@modelElements.1/@subsections.1/@modelElements.0" annotatedModelElements="//@modelElements.3/@subsections.0/@subsections.1" assignee="//@modelElements.1/@subsections.0/@modelElements.1"/>
+      <modelElements xsi:type="org.unicase.model.task:WorkPackage" name="Create design alternative with new deployment of ReEncoder" annotations="//@modelElements.1/@subsections.1/@modelElements.0" annotatedModelElements="//@modelElements.3/@subsections.0/@subsections.2" assignee="//@modelElements.1/@subsections.0/@modelElements.0"/>
+    </subsections>
+    <subsections xsi:type="org.unicase.model.document:LeafSection" name="Criteria">
+      <modelElements xsi:type="org.unicase.model.rationale:Criterion" name="Response time"/>
+    </subsections>
+  </modelElements>
+  <modelElements xsi:type="org.unicase.model.document:CompositeSection" name="Software Architecture">
+    <subsections xsi:type="org.unicase.model.document:LeafSection" name="Components">
+      <modelElements xsi:type="org.unicase.model.component:Component" name="WebGUI" consumedServices="//@modelElements.2/@subsections.0/@modelElements.8/@offeredServices.0 //@modelElements.2/@subsections.0/@modelElements.5/@offeredServices.0">
+        <offeredServices name="IWebGUI"/>
+      </modelElements>
+      <modelElements xsi:type="org.unicase.model.diagram:ComponentDiagram" name="Initial Architecture" elements="//@modelElements.2/@subsections.0/@modelElements.0 //@modelElements.2/@subsections.0/@modelElements.2 //@modelElements.2/@subsections.0/@modelElements.3 //@modelElements.2/@subsections.0/@modelElements.4 //@modelElements.2/@subsections.0/@modelElements.3/@offeredServices.0 //@modelElements.2/@subsections.0/@modelElements.4/@offeredServices.0 //@modelElements.2/@subsections.0/@modelElements.0/@offeredServices.0 //@modelElements.2/@subsections.0/@modelElements.5 //@modelElements.2/@subsections.0/@modelElements.6 //@modelElements.2/@subsections.0/@modelElements.7 //@modelElements.2/@subsections.0/@modelElements.8 //@modelElements.2/@subsections.0/@modelElements.9 //@modelElements.2/@subsections.0/@modelElements.10 //@modelElements.2/@subsections.0/@modelElements.8/@offeredServices.0 //@modelElements.2/@subsections.0/@modelElements.5/@offeredServices.0 //@modelElements.2/@subsections.0/@modelElements.9/@offeredServices.0 //@modelElements.2/@subsections.0/@modelElements.10/@offeredServices.0 //@modelElements.2/@subsections.0/@modelElements.2/@offeredServices.0 //@modelElements.2/@subsections.0/@modelElements.7/@offeredServices.0 //@modelElements.2/@subsections.0/@modelElements.2/@offeredServices.1 //@modelElements.2/@subsections.0/@modelElements.6/@offeredServices.0">
+        <gmfdiagram type="Component" element="//@modelElements.2/@subsections.0/@modelElements.1" measurementUnit="Pixel">
+          <children type="2002" element="//@modelElements.2/@subsections.0/@modelElements.0">
+            <children xsi:type="notation:DecorationNode" type="5002"/>
+            <styles xsi:type="notation:DescriptionStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <styles xsi:type="notation:FillStyle"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="196" y="240" width="121" height="74"/>
+          </children>
+          <children type="2002" element="//@modelElements.2/@subsections.0/@modelElements.2">
+            <children xsi:type="notation:DecorationNode" type="5002"/>
+            <styles xsi:type="notation:DescriptionStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <styles xsi:type="notation:FillStyle"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="608" y="320" height="69"/>
+          </children>
+          <children type="2002" element="//@modelElements.2/@subsections.0/@modelElements.3">
+            <children xsi:type="notation:DecorationNode" type="5002"/>
+            <styles xsi:type="notation:DescriptionStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <styles xsi:type="notation:FillStyle"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="812" y="196" height="66"/>
+          </children>
+          <children type="2002" element="//@modelElements.2/@subsections.0/@modelElements.4">
+            <children xsi:type="notation:DecorationNode" type="5002"/>
+            <styles xsi:type="notation:DescriptionStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <styles xsi:type="notation:FillStyle"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="796" y="448" height="74"/>
+          </children>
+          <children type="2001" element="//@modelElements.2/@subsections.0/@modelElements.3/@offeredServices.0">
+            <children xsi:type="notation:DecorationNode" type="5001">
+              <layoutConstraint xsi:type="notation:Location" y="5"/>
+            </children>
+            <styles xsi:type="notation:DescriptionStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <styles xsi:type="notation:FillStyle"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="760" y="224"/>
+          </children>
+          <children type="2001" element="//@modelElements.2/@subsections.0/@modelElements.4/@offeredServices.0">
+            <children xsi:type="notation:DecorationNode" type="5001">
+              <layoutConstraint xsi:type="notation:Location" y="5"/>
+            </children>
+            <styles xsi:type="notation:DescriptionStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <styles xsi:type="notation:FillStyle"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="740" y="472"/>
+          </children>
+          <children type="2001" element="//@modelElements.2/@subsections.0/@modelElements.0/@offeredServices.0">
+            <children xsi:type="notation:DecorationNode" type="5001">
+              <layoutConstraint xsi:type="notation:Location" y="5"/>
+            </children>
+            <styles xsi:type="notation:DescriptionStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <styles xsi:type="notation:FillStyle"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="136" y="276"/>
+          </children>
+          <children type="2002" element="//@modelElements.2/@subsections.0/@modelElements.5">
+            <children xsi:type="notation:DecorationNode" type="5002"/>
+            <styles xsi:type="notation:DescriptionStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <styles xsi:type="notation:FillStyle"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="396" y="72" height="67"/>
+          </children>
+          <children type="2002" element="//@modelElements.2/@subsections.0/@modelElements.6">
+            <children xsi:type="notation:DecorationNode" type="5002"/>
+            <styles xsi:type="notation:DescriptionStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <styles xsi:type="notation:FillStyle"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="604" y="68" height="69"/>
+          </children>
+          <children type="2002" element="//@modelElements.2/@subsections.0/@modelElements.7">
+            <children xsi:type="notation:DecorationNode" type="5002"/>
+            <styles xsi:type="notation:DescriptionStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <styles xsi:type="notation:FillStyle"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="404" y="452" height="64"/>
+          </children>
+          <children type="2002" element="//@modelElements.2/@subsections.0/@modelElements.8">
+            <children xsi:type="notation:DecorationNode" type="5002"/>
+            <styles xsi:type="notation:DescriptionStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <styles xsi:type="notation:FillStyle"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="400" y="316" height="72"/>
+          </children>
+          <children type="2002" element="//@modelElements.2/@subsections.0/@modelElements.9">
+            <children xsi:type="notation:DecorationNode" type="5002"/>
+            <styles xsi:type="notation:DescriptionStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <styles xsi:type="notation:FillStyle"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="400" y="192" height="71"/>
+          </children>
+          <children type="2002" element="//@modelElements.2/@subsections.0/@modelElements.10">
+            <children xsi:type="notation:DecorationNode" type="5002"/>
+            <styles xsi:type="notation:DescriptionStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <styles xsi:type="notation:FillStyle"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="606" y="191" height="75"/>
+          </children>
+          <children type="2001" element="//@modelElements.2/@subsections.0/@modelElements.8/@offeredServices.0">
+            <children xsi:type="notation:DecorationNode" type="5001">
+              <layoutConstraint xsi:type="notation:Location" y="5"/>
+            </children>
+            <styles xsi:type="notation:DescriptionStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <styles xsi:type="notation:FillStyle"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="328" y="348"/>
+          </children>
+          <children type="2001" element="//@modelElements.2/@subsections.0/@modelElements.5/@offeredServices.0">
+            <children xsi:type="notation:DecorationNode" type="5001">
+              <layoutConstraint xsi:type="notation:Location" y="5"/>
+            </children>
+            <styles xsi:type="notation:DescriptionStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <styles xsi:type="notation:FillStyle"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="328" y="104"/>
+          </children>
+          <children type="2001" element="//@modelElements.2/@subsections.0/@modelElements.9/@offeredServices.0">
+            <children xsi:type="notation:DecorationNode" type="5001">
+              <layoutConstraint xsi:type="notation:Location" x="-49" y="10"/>
+            </children>
+            <styles xsi:type="notation:DescriptionStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <styles xsi:type="notation:FillStyle"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="448" y="280"/>
+          </children>
+          <children type="2001" element="//@modelElements.2/@subsections.0/@modelElements.10/@offeredServices.0">
+            <children xsi:type="notation:DecorationNode" type="5001">
+              <layoutConstraint xsi:type="notation:Location" y="5"/>
+            </children>
+            <styles xsi:type="notation:DescriptionStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <styles xsi:type="notation:FillStyle"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="560" y="228"/>
+          </children>
+          <children type="2001" element="//@modelElements.2/@subsections.0/@modelElements.2/@offeredServices.0">
+            <children xsi:type="notation:DecorationNode" type="5001">
+              <layoutConstraint xsi:type="notation:Location" y="5"/>
+            </children>
+            <styles xsi:type="notation:DescriptionStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <styles xsi:type="notation:FillStyle"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="652" y="280"/>
+          </children>
+          <children type="2001" element="//@modelElements.2/@subsections.0/@modelElements.7/@offeredServices.0">
+            <children xsi:type="notation:DecorationNode" type="5001">
+              <layoutConstraint xsi:type="notation:Location" y="5"/>
+            </children>
+            <styles xsi:type="notation:DescriptionStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <styles xsi:type="notation:FillStyle"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="452" y="408"/>
+          </children>
+          <children type="2001" element="//@modelElements.2/@subsections.0/@modelElements.2/@offeredServices.1">
+            <children xsi:type="notation:DecorationNode" type="5001">
+              <layoutConstraint xsi:type="notation:Location" y="5"/>
+            </children>
+            <styles xsi:type="notation:DescriptionStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <styles xsi:type="notation:FillStyle"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="571" y="350"/>
+          </children>
+          <children type="2001" element="//@modelElements.2/@subsections.0/@modelElements.6/@offeredServices.0">
+            <children xsi:type="notation:DecorationNode" type="5001">
+              <layoutConstraint xsi:type="notation:Location" y="5"/>
+            </children>
+            <styles xsi:type="notation:DescriptionStyle"/>
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <styles xsi:type="notation:FillStyle"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="560" y="96"/>
+          </children>
+          <styles xsi:type="notation:DiagramStyle"/>
+          <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.2" target="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.4">
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <element xsi:nil="true"/>
+            <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-4, -2, 916, 252]$[-920, -254, 0, 0]"/>
+            <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.0,0.5151515151515151)"/>
+          </edges>
+          <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.3" target="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.5">
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <element xsi:nil="true"/>
+            <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-50, -22, 920, 395]$[-970, -417, 0, 0]"/>
+          </edges>
+          <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.1" target="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.4">
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <element xsi:nil="true"/>
+            <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[3, -3, -78, 61]$[81, -71, 0, -7]"/>
+            <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.7,0.043478260869565216)"/>
+          </edges>
+          <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.1" target="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.5">
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <element xsi:nil="true"/>
+            <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[45, 35, -60, -50]$[108, 78, 3, -7]"/>
+          </edges>
+          <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.0" target="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.6">
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <element xsi:nil="true"/>
+            <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-15, -21, 224, 306]$[-239, -327, 0, 0]"/>
+            <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.12396694214876033,0.5945945945945946)"/>
+          </edges>
+          <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.10" target="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.13">
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <element xsi:nil="true"/>
+            <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-47, -36, 412, 316]$[-459, -352, 0, 0]"/>
+          </edges>
+          <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.7" target="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.14">
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <element xsi:nil="true"/>
+            <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-41, -12, 396, 111]$[-437, -123, 0, 0]"/>
+            <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.017857142857142856,0.5671641791044776)"/>
+          </edges>
+          <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.0" target="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.13">
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <element xsi:nil="true"/>
+            <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[39, 37, -37, -35]$[75, 71, -1, -1]"/>
+            <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.26666666666666666,0.06666666666666667)"/>
+          </edges>
+          <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.0" target="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.14">
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <element xsi:nil="true"/>
+            <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[3, -6, -70, 129]$[71, -142, -2, -7]"/>
+            <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.5454545454545454,0.08108108108108109)"/>
+          </edges>
+          <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.11" target="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.15">
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <element xsi:nil="true"/>
+            <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-52, -29, 400, 221]$[-452, -250, 0, 0]"/>
+            <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.4642857142857143,0.8169014084507042)"/>
+          </edges>
+          <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.12" target="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.16">
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <element xsi:nil="true"/>
+            <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-50, -17, 606, 211]$[-656, -228, 0, 0]"/>
+          </edges>
+          <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.1" target="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.17">
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <element xsi:nil="true"/>
+            <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-50, -27, 608, 327]$[-658, -354, 0, 0]"/>
+          </edges>
+          <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.12" target="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.17">
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <element xsi:nil="true"/>
+            <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[0, 16, -3, -21]$[0, 30, -3, -7]"/>
+            <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.5,0.7866666666666666)"/>
+          </edges>
+          <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.11" target="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.16">
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <element xsi:nil="true"/>
+            <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[13, 5, -57, -1]$[68, -1, -2, -7]"/>
+            <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.8839285714285714,0.6197183098591549)"/>
+          </edges>
+          <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.10" target="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.15">
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <element xsi:nil="true"/>
+            <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-2, -16, -3, 29]$[-2, -37, -3, 8]"/>
+            <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.4576271186440678,0.2222222222222222)"/>
+          </edges>
+          <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.9" target="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.18">
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <element xsi:nil="true"/>
+            <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-14, -14, 437, 452]$[-451, -466, 0, 0]"/>
+            <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.47,0.21875)"/>
+          </edges>
+          <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.10" target="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.18">
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <element xsi:nil="true"/>
+            <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[3, 9, 0, -39]$[3, 41, 0, -7]"/>
+            <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.4830508474576271,0.875)"/>
+          </edges>
+          <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.1" target="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.19">
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <element xsi:nil="true"/>
+            <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-50, -27, 608, 327]$[-658, -354, 0, 0]"/>
+          </edges>
+          <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.10" target="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.19">
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <element xsi:nil="true"/>
+            <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[59, 2, -60, -3]$[118, -2, -1, -7]"/>
+          </edges>
+          <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.8" target="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.20">
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <element xsi:nil="true"/>
+            <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-23, -4, 604, 96]$[-627, -100, 0, 0]"/>
+            <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.22549019607843138,0.463768115942029)"/>
+          </edges>
+          <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.7" target="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.20">
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <element xsi:nil="true"/>
+            <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[21, -3, -59, 0]$[78, -10, -2, -7]"/>
+            <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.8125,0.5074626865671642)"/>
+          </edges>
+          <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.8" target="//@modelElements.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.4">
+            <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+            <element xsi:nil="true"/>
+            <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[14, 22, -61, -97]$[75, 127, 0, 8]"/>
+            <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.8627450980392157,0.6376811594202898)"/>
+          </edges>
+        </gmfdiagram>
+      </modelElements>
+      <modelElements xsi:type="org.unicase.model.component:Component" name="MediaAccess" consumedServices="//@modelElements.2/@subsections.0/@modelElements.3/@offeredServices.0 //@modelElements.2/@subsections.0/@modelElements.4/@offeredServices.0">
+        <offeredServices name="IDownload" consumingComponents="//@modelElements.2/@subsections.0/@modelElements.10"/>
+        <offeredServices name="IUpload" consumingComponents="//@modelElements.2/@subsections.0/@modelElements.8"/>
+      </modelElements>
+      <modelElements xsi:type="org.unicase.model.component:Component" name="Database">
+        <offeredServices name="IDataBase" consumingComponents="//@modelElements.2/@subsections.0/@modelElements.2 //@modelElements.2/@subsections.0/@modelElements.6"/>
+      </modelElements>
+      <modelElements xsi:type="org.unicase.model.component:Component" name="DataStorage">
+        <offeredServices name="IDataStorage" consumingComponents="//@modelElements.2/@subsections.0/@modelElements.2"/>
+      </modelElements>
+      <modelElements xsi:type="org.unicase.model.component:Component" name="UserManagement" consumedServices="//@modelElements.2/@subsections.0/@modelElements.6/@offeredServices.0">
+        <offeredServices name="IUserManagement" consumingComponents="//@modelElements.2/@subsections.0/@modelElements.0"/>
+      </modelElements>
+      <modelElements xsi:type="org.unicase.model.component:Component" name="UserDBAdapter" consumedServices="//@modelElements.2/@subsections.0/@modelElements.3/@offeredServices.0">
+        <offeredServices name="IUserAdapter" consumingComponents="//@modelElements.2/@subsections.0/@modelElements.5"/>
+      </modelElements>
+      <modelElements xsi:type="org.unicase.model.component:Component" name="Packaging">
+        <offeredServices name="IPackaging" consumingComponents="//@modelElements.2/@subsections.0/@modelElements.8"/>
+      </modelElements>
+      <modelElements xsi:type="org.unicase.model.component:Component" name="MediaManagement" consumedServices="//@modelElements.2/@subsections.0/@modelElements.9/@offeredServices.0 //@modelElements.2/@subsections.0/@modelElements.7/@offeredServices.0 //@modelElements.2/@subsections.0/@modelElements.2/@offeredServices.1">
+        <offeredServices name="IMediaManagement" consumingComponents="//@modelElements.2/@subsections.0/@modelElements.0"/>
+      </modelElements>
+      <modelElements xsi:type="org.unicase.model.component:Component" name="TagWatermarking" consumedServices="//@modelElements.2/@subsections.0/@modelElements.10/@offeredServices.0">
+        <offeredServices name="IDownload" consumingComponents="//@modelElements.2/@subsections.0/@modelElements.8"/>
+      </modelElements>
+      <modelElements xsi:type="org.unicase.model.component:Component" name="ReEncoder" consumedServices="//@modelElements.2/@subsections.0/@modelElements.2/@offeredServices.0">
+        <offeredServices name="IDownload" consumingComponents="//@modelElements.2/@subsections.0/@modelElements.9"/>
+      </modelElements>
+    </subsections>
+    <subsections xsi:type="org.unicase.model.document:LeafSection" name="Deployment">
+      <modelElements xsi:type="org.unicase.model.component:DeploymentNode" name="Server 1" description="Same hardware as Server 2 " components="//@modelElements.2/@subsections.0/@modelElements.3 //@modelElements.2/@subsections.0/@modelElements.4 //@modelElements.2/@subsections.0/@modelElements.2 //@modelElements.2/@subsections.0/@modelElements.8 //@modelElements.2/@subsections.0/@modelElements.7 //@modelElements.2/@subsections.0/@modelElements.10 //@modelElements.2/@subsections.0/@modelElements.9 //@modelElements.2/@subsections.0/@modelElements.6 //@modelElements.2/@subsections.0/@modelElements.5 //@modelElements.2/@subsections.0/@modelElements.0"/>
+      <modelElements xsi:type="org.unicase.model.component:DeploymentNode" name="Server 2" description="Same hardware as Server 1"/>
+      <modelElements xsi:type="org.unicase.model.component:DeploymentNode" name="Server 3"/>
+    </subsections>
+  </modelElements>
+  <modelElements xsi:type="org.unicase.model.document:CompositeSection" name="System Architecture">
+    <subsections xsi:type="org.unicase.model.document:CompositeSection" name="Design Alternatives">
+      <subsections xsi:type="org.unicase.model.document:CompositeSection" name="Alternative AudioWatermarking" annotations="//@modelElements.1/@subsections.2/@modelElements.0">
+        <subsections xsi:type="org.unicase.model.document:LeafSection" name="Components">
+          <modelElements xsi:type="org.unicase.model.component:Component" name="WebGUI" consumedServices="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.8/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.5/@offeredServices.0">
+            <offeredServices name="IWebGUI"/>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.diagram:ComponentDiagram" name="Architecture with AudioWatermarking" elements="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.0 //@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.2 //@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.3 //@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.4 //@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.3/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.4/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.0/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.5 //@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.6 //@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.7 //@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.8 //@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.8/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.5/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.2/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.7/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.2/@offeredServices.1 //@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.6/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.9 //@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.9/@offeredServices.0">
+            <gmfdiagram type="Component" element="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1" measurementUnit="Pixel">
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.0">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="196" y="240" width="121" height="74"/>
+              </children>
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.2">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="608" y="320" height="69"/>
+              </children>
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.3">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="812" y="196" height="66"/>
+              </children>
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.4">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="796" y="448" height="74"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.3/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="760" y="224"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.4/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="740" y="472"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.0/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="136" y="276"/>
+              </children>
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.5">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="396" y="72" height="67"/>
+              </children>
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.6">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="604" y="68" height="69"/>
+              </children>
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.7">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="404" y="452" height="64"/>
+              </children>
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.8">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="400" y="316" height="72"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.8/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="328" y="348"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.5/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="328" y="104"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.2/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="656" y="268"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.7/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="452" y="408"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.2/@offeredServices.1">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="571" y="350"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.6/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="560" y="96"/>
+              </children>
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.9">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="496" y="184" height="73"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.9/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="456" y="268"/>
+              </children>
+              <styles xsi:type="notation:DiagramStyle"/>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.2" target="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.4">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-4, -2, 916, 252]$[-920, -254, 0, 0]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.0,0.5151515151515151)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.3" target="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.5">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-50, -22, 920, 395]$[-970, -417, 0, 0]"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.1" target="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.4">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[3, -3, -78, 61]$[81, -71, 0, -7]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.7,0.043478260869565216)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.1" target="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.5">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[45, 35, -60, -50]$[108, 78, 3, -7]"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.0" target="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.6">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-15, -21, 224, 306]$[-239, -327, 0, 0]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.12396694214876033,0.5945945945945946)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.10" target="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.11">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-47, -36, 412, 316]$[-459, -352, 0, 0]"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.7" target="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.12">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-41, -12, 396, 111]$[-437, -123, 0, 0]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.017857142857142856,0.5671641791044776)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.0" target="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.11">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[39, 37, -37, -35]$[75, 71, -1, -1]"/>
+                <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.26666666666666666,0.06666666666666667)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.0" target="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.12">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[3, -6, -70, 129]$[71, -142, -2, -7]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.5454545454545454,0.08108108108108109)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.1" target="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.13">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-50, -27, 608, 327]$[-658, -354, 0, 0]"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.9" target="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.14">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-14, -14, 437, 452]$[-451, -466, 0, 0]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.47,0.21875)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.10" target="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.14">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[3, 9, 0, -39]$[3, 41, 0, -7]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.4830508474576271,0.875)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.1" target="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.15">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-50, -27, 608, 327]$[-658, -354, 0, 0]"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.10" target="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.15">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[59, 2, -60, -3]$[118, -2, -1, -7]"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.8" target="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.16">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-23, -4, 604, 96]$[-627, -100, 0, 0]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.22549019607843138,0.463768115942029)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.7" target="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.16">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[21, -3, -59, 0]$[78, -10, -2, -7]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.8125,0.5074626865671642)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.8" target="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.4">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[14, 22, -61, -97]$[75, 127, 0, 8]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.8627450980392157,0.6376811594202898)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.17" target="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.18">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-19, -9, 496, 221]$[-515, -230, 0, 0]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.1532258064516129,0.6301369863013698)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.17" target="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.13">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[10, 10, -39, -40]$[48, 58, -1, 8]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.9193548387096774,0.726027397260274)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.10" target="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.1/@gmfdiagram/@children.18">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[9, -36, -2, 35]$[9, -63, -2, 8]"/>
+              </edges>
+            </gmfdiagram>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.component:Component" name="MediaAccess" consumedServices="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.3/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.4/@offeredServices.0">
+            <offeredServices name="IDownload" consumingComponents="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.9"/>
+            <offeredServices name="IUpload" consumingComponents="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.8"/>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.component:Component" name="Database">
+            <offeredServices name="IDataBase" consumingComponents="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.2 //@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.6"/>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.component:Component" name="DataStorage">
+            <offeredServices name="IDataStorage" consumingComponents="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.2"/>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.component:Component" name="UserManagement" consumedServices="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.6/@offeredServices.0">
+            <offeredServices name="IUserManagement" consumingComponents="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.0"/>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.component:Component" name="UserDBAdapter" consumedServices="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.3/@offeredServices.0">
+            <offeredServices name="IUserAdapter" consumingComponents="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.5"/>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.component:Component" name="Packaging">
+            <offeredServices name="IPackaging" consumingComponents="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.8"/>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.component:Component" name="MediaManagement" consumedServices="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.7/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.2/@offeredServices.1 //@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.9/@offeredServices.0">
+            <offeredServices name="IMediaManagement" consumingComponents="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.0"/>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.component:Component" name="AudioWatermarking" consumedServices="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.2/@offeredServices.0">
+            <offeredServices name="IDownload" consumingComponents="//@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.8"/>
+          </modelElements>
+        </subsections>
+        <subsections xsi:type="org.unicase.model.document:LeafSection" name="Deployment">
+          <modelElements xsi:type="org.unicase.model.component:DeploymentNode" name="Server 1" description="Same hardware as Server 2 " components="//@modelElements.2/@subsections.0/@modelElements.3 //@modelElements.2/@subsections.0/@modelElements.4 //@modelElements.2/@subsections.0/@modelElements.2 //@modelElements.2/@subsections.0/@modelElements.8 //@modelElements.2/@subsections.0/@modelElements.7 //@modelElements.2/@subsections.0/@modelElements.10 //@modelElements.2/@subsections.0/@modelElements.9 //@modelElements.2/@subsections.0/@modelElements.6 //@modelElements.2/@subsections.0/@modelElements.5 //@modelElements.2/@subsections.0/@modelElements.0 //@modelElements.3/@subsections.0/@subsections.0/@subsections.0/@modelElements.9"/>
+          <modelElements xsi:type="org.unicase.model.component:DeploymentNode" name="Server 2" description="Same hardware as Server 1"/>
+          <modelElements xsi:type="org.unicase.model.component:DeploymentNode" name="Server 3"/>
+        </subsections>
+      </subsections>
+      <subsections xsi:type="org.unicase.model.document:CompositeSection" name="Alternative Cache" annotations="//@modelElements.1/@subsections.2/@modelElements.1">
+        <subsections xsi:type="org.unicase.model.document:LeafSection" name="Components">
+          <modelElements xsi:type="org.unicase.model.component:Component" name="WebGUI" consumedServices="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.8/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.5/@offeredServices.0">
+            <offeredServices name="IWebGUI"/>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.diagram:ComponentDiagram" name="Architecture with Cache" elements="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.0 //@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.2 //@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.3 //@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.4 //@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.3/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.4/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.0/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.5 //@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.6 //@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.7 //@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.8 //@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.9 //@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.10 //@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.8/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.5/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.9/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.10/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.2/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.7/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.2/@offeredServices.1 //@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.6/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.11 //@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.11/@offeredServices.0">
+            <gmfdiagram type="Component" element="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1" measurementUnit="Pixel">
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.0">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="196" y="240" width="121" height="74"/>
+              </children>
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.2">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="608" y="392" height="69"/>
+              </children>
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.3">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="812" y="196" height="66"/>
+              </children>
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.4">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="796" y="448" height="74"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.3/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="760" y="224"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.4/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="740" y="472"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.0/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="136" y="276"/>
+              </children>
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.5">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="396" y="72" height="67"/>
+              </children>
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.6">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="604" y="68" height="69"/>
+              </children>
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.7">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="404" y="524" height="64"/>
+              </children>
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.8">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="400" y="388" height="72"/>
+              </children>
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.9">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="400" y="264" height="71"/>
+              </children>
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.10">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="606" y="263" height="75"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.8/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="328" y="404"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.5/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="328" y="104"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.9/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" x="-49" y="10"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="448" y="352"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.10/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="656" y="224"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.2/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="652" y="352"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.7/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="452" y="480"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.2/@offeredServices.1">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="571" y="422"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.6/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="560" y="96"/>
+              </children>
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.11">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="520" y="168" height="65"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.11/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="464" y="196"/>
+              </children>
+              <styles xsi:type="notation:DiagramStyle"/>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.2" target="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.4">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-4, -2, 916, 252]$[-920, -254, 0, 0]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.0,0.5151515151515151)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.3" target="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.5">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-50, -22, 920, 395]$[-970, -417, 0, 0]"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.1" target="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.4">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[3, -3, -78, 61]$[81, -71, 0, -7]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.94,0.0)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.1" target="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.5">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[45, 35, -60, -50]$[108, 78, 3, -7]"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.0" target="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.6">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-15, -21, 224, 306]$[-239, -327, 0, 0]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.12396694214876033,0.5945945945945946)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.10" target="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.13">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-47, -36, 412, 316]$[-459, -352, 0, 0]"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.7" target="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.14">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-41, -12, 396, 111]$[-437, -123, 0, 0]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.017857142857142856,0.5671641791044776)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.0" target="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.13">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[39, 37, -37, -35]$[75, 71, -1, -1]"/>
+                <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.26666666666666666,0.06666666666666667)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.0" target="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.14">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[3, -6, -70, 129]$[71, -142, -2, -7]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.5454545454545454,0.08108108108108109)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.11" target="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.15">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-52, -29, 400, 221]$[-452, -250, 0, 0]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.4642857142857143,0.8169014084507042)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.12" target="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.16">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-50, -17, 606, 211]$[-656, -228, 0, 0]"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.1" target="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.17">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-50, -27, 608, 327]$[-658, -354, 0, 0]"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.12" target="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.17">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[0, 16, -3, -21]$[0, 30, -3, -7]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.5,0.7866666666666666)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.10" target="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.15">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-2, -16, -3, 29]$[-2, -37, -3, 8]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.4576271186440678,0.2222222222222222)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.9" target="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.18">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-14, -14, 437, 452]$[-451, -466, 0, 0]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.47,0.21875)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.10" target="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.18">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[3, 9, 0, -39]$[3, 41, 0, -7]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.4830508474576271,0.875)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.1" target="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.19">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-50, -27, 608, 327]$[-658, -354, 0, 0]"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.10" target="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.19">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[59, 2, -60, -3]$[118, -2, -1, -7]"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.8" target="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.20">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-23, -4, 604, 96]$[-627, -100, 0, 0]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.22549019607843138,0.463768115942029)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.7" target="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.20">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[21, -3, -59, 0]$[78, -10, -2, -7]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.8125,0.5074626865671642)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.8" target="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.4">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[14, 22, -61, -97]$[75, 127, 0, 8]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.8627450980392157,0.6376811594202898)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.21" target="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.22">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-50, -18, 520, 182]$[-570, -200, 0, 0]"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.21" target="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.16">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[21, 4, -43, -13]$[64, 10, 0, -7]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.79,0.5846153846153846)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.11" target="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.1/@gmfdiagram/@children.22">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[3, -8, -26, 61]$[28, -76, -1, -7]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.45535714285714285,0.11267605633802817)"/>
+              </edges>
+            </gmfdiagram>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.component:Component" name="MediaAccess" consumedServices="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.3/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.4/@offeredServices.0">
+            <offeredServices name="IDownload" consumingComponents="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.10"/>
+            <offeredServices name="IUpload" consumingComponents="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.8"/>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.component:Component" name="Database">
+            <offeredServices name="IDataBase" consumingComponents="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.2 //@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.6"/>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.component:Component" name="DataStorage">
+            <offeredServices name="IDataStorage" consumingComponents="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.2"/>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.component:Component" name="UserManagement" consumedServices="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.6/@offeredServices.0">
+            <offeredServices name="IUserManagement" consumingComponents="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.0"/>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.component:Component" name="UserDBAdapter" consumedServices="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.3/@offeredServices.0">
+            <offeredServices name="IUserAdapter" consumingComponents="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.5"/>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.component:Component" name="Packaging">
+            <offeredServices name="IPackaging" consumingComponents="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.8"/>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.component:Component" name="MediaManagement" consumedServices="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.9/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.7/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.2/@offeredServices.1">
+            <offeredServices name="IMediaManagement" consumingComponents="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.0"/>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.component:Component" name="TagWatermarking" consumedServices="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.11/@offeredServices.0">
+            <offeredServices name="IDownload" consumingComponents="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.8"/>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.component:Component" name="ReEncoder" consumedServices="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.2/@offeredServices.0">
+            <offeredServices name="IDownload" consumingComponents="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.11"/>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.component:Component" name="Cache" consumedServices="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.10/@offeredServices.0">
+            <offeredServices name="IDownload" consumingComponents="//@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.9"/>
+          </modelElements>
+        </subsections>
+        <subsections xsi:type="org.unicase.model.document:LeafSection" name="Deployment">
+          <modelElements xsi:type="org.unicase.model.component:DeploymentNode" name="Server 1" description="Same hardware as Server 2 " components="//@modelElements.2/@subsections.0/@modelElements.3 //@modelElements.2/@subsections.0/@modelElements.4 //@modelElements.2/@subsections.0/@modelElements.2 //@modelElements.2/@subsections.0/@modelElements.8 //@modelElements.2/@subsections.0/@modelElements.7 //@modelElements.2/@subsections.0/@modelElements.10 //@modelElements.2/@subsections.0/@modelElements.9 //@modelElements.2/@subsections.0/@modelElements.6 //@modelElements.2/@subsections.0/@modelElements.5 //@modelElements.2/@subsections.0/@modelElements.0 //@modelElements.3/@subsections.0/@subsections.1/@subsections.0/@modelElements.11"/>
+          <modelElements xsi:type="org.unicase.model.component:DeploymentNode" name="Server 2" description="Same hardware as Server 1"/>
+          <modelElements xsi:type="org.unicase.model.component:DeploymentNode" name="Server 3"/>
+        </subsections>
+      </subsections>
+      <subsections xsi:type="org.unicase.model.document:CompositeSection" name="Alternative Deployment" annotations="//@modelElements.1/@subsections.2/@modelElements.2">
+        <subsections xsi:type="org.unicase.model.document:LeafSection" name="Components">
+          <modelElements xsi:type="org.unicase.model.component:Component" name="WebGUI" consumedServices="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.8/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.5/@offeredServices.0">
+            <offeredServices name="IWebGUI"/>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.diagram:ComponentDiagram" name="Initial Architecture" elements="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.0 //@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.2 //@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.3 //@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.4 //@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.3/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.4/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.0/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.5 //@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.6 //@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.7 //@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.8 //@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.9 //@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.10 //@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.8/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.5/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.9/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.10/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.2/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.7/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.2/@offeredServices.1 //@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.6/@offeredServices.0">
+            <gmfdiagram type="Component" element="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1" measurementUnit="Pixel">
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.0">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="196" y="240" width="121" height="74"/>
+              </children>
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.2">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="608" y="320" height="69"/>
+              </children>
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.3">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="812" y="196" height="66"/>
+              </children>
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.4">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="796" y="448" height="74"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.3/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="760" y="224"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.4/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="740" y="472"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.0/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="136" y="276"/>
+              </children>
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.5">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="396" y="72" height="67"/>
+              </children>
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.6">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="604" y="68" height="69"/>
+              </children>
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.7">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="404" y="452" height="64"/>
+              </children>
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.8">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="400" y="316" height="72"/>
+              </children>
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.9">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="400" y="192" height="71"/>
+              </children>
+              <children type="2002" element="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.10">
+                <children xsi:type="notation:DecorationNode" type="5002"/>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="606" y="191" height="75"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.8/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="328" y="348"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.5/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="328" y="104"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.9/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" x="-49" y="10"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="448" y="280"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.10/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="560" y="228"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.2/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="652" y="280"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.7/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="452" y="408"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.2/@offeredServices.1">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="571" y="350"/>
+              </children>
+              <children type="2001" element="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.6/@offeredServices.0">
+                <children xsi:type="notation:DecorationNode" type="5001">
+                  <layoutConstraint xsi:type="notation:Location" y="5"/>
+                </children>
+                <styles xsi:type="notation:DescriptionStyle"/>
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <styles xsi:type="notation:FillStyle"/>
+                <layoutConstraint xsi:type="notation:Bounds" x="560" y="96"/>
+              </children>
+              <styles xsi:type="notation:DiagramStyle"/>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.2" target="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.4">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-4, -2, 916, 252]$[-920, -254, 0, 0]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.0,0.5151515151515151)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.3" target="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.5">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-50, -22, 920, 395]$[-970, -417, 0, 0]"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.1" target="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.4">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[3, -3, -78, 61]$[81, -71, 0, -7]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.7,0.043478260869565216)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.1" target="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.5">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[45, 35, -60, -50]$[108, 78, 3, -7]"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.0" target="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.6">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-15, -21, 224, 306]$[-239, -327, 0, 0]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.12396694214876033,0.5945945945945946)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.10" target="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.13">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-47, -36, 412, 316]$[-459, -352, 0, 0]"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.7" target="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.14">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-41, -12, 396, 111]$[-437, -123, 0, 0]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.017857142857142856,0.5671641791044776)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.0" target="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.13">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[39, 37, -37, -35]$[75, 71, -1, -1]"/>
+                <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.26666666666666666,0.06666666666666667)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.0" target="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.14">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[3, -6, -70, 129]$[71, -142, -2, -7]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.5454545454545454,0.08108108108108109)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.11" target="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.15">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-52, -29, 400, 221]$[-452, -250, 0, 0]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.4642857142857143,0.8169014084507042)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.12" target="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.16">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-50, -17, 606, 211]$[-656, -228, 0, 0]"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.1" target="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.17">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-50, -27, 608, 327]$[-658, -354, 0, 0]"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.12" target="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.17">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[0, 16, -3, -21]$[0, 30, -3, -7]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.5,0.7866666666666666)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.11" target="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.16">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[13, 5, -57, -1]$[68, -1, -2, -7]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.8839285714285714,0.6197183098591549)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.10" target="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.15">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-2, -16, -3, 29]$[-2, -37, -3, 8]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.4576271186440678,0.2222222222222222)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.9" target="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.18">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-14, -14, 437, 452]$[-451, -466, 0, 0]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.47,0.21875)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.10" target="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.18">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[3, 9, 0, -39]$[3, 41, 0, -7]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.4830508474576271,0.875)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.1" target="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.19">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-50, -27, 608, 327]$[-658, -354, 0, 0]"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.10" target="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.19">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[59, 2, -60, -3]$[118, -2, -1, -7]"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4001" source="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.8" target="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.20">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[-23, -4, 604, 96]$[-627, -100, 0, 0]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.22549019607843138,0.463768115942029)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.7" target="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.20">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[21, -3, -59, 0]$[78, -10, -2, -7]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.8125,0.5074626865671642)"/>
+              </edges>
+              <edges xsi:type="notation:Connector" type="4002" source="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.8" target="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.1/@gmfdiagram/@children.4">
+                <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+                <element xsi:nil="true"/>
+                <bendpoints xsi:type="org.unicase.model.diagram:MERelativeBendpoints" points="[14, 22, -61, -97]$[75, 127, 0, 8]"/>
+                <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.8627450980392157,0.6376811594202898)"/>
+              </edges>
+            </gmfdiagram>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.component:Component" name="MediaAccess" consumedServices="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.3/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.4/@offeredServices.0">
+            <offeredServices name="IDownload" consumingComponents="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.10"/>
+            <offeredServices name="IUpload" consumingComponents="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.8"/>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.component:Component" name="Database">
+            <offeredServices name="IDataBase" consumingComponents="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.2 //@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.6"/>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.component:Component" name="DataStorage">
+            <offeredServices name="IDataStorage" consumingComponents="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.2"/>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.component:Component" name="UserManagement" consumedServices="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.6/@offeredServices.0">
+            <offeredServices name="IUserManagement" consumingComponents="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.0"/>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.component:Component" name="UserDBAdapter" consumedServices="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.3/@offeredServices.0">
+            <offeredServices name="IUserAdapter" consumingComponents="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.5"/>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.component:Component" name="Packaging">
+            <offeredServices name="IPackaging" consumingComponents="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.8"/>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.component:Component" name="MediaManagement" consumedServices="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.9/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.7/@offeredServices.0 //@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.2/@offeredServices.1">
+            <offeredServices name="IMediaManagement" consumingComponents="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.0"/>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.component:Component" name="TagWatermarking" consumedServices="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.10/@offeredServices.0">
+            <offeredServices name="IDownload" consumingComponents="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.8"/>
+          </modelElements>
+          <modelElements xsi:type="org.unicase.model.component:Component" name="ReEncoder" consumedServices="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.2/@offeredServices.0">
+            <offeredServices name="IDownload" consumingComponents="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.9"/>
+          </modelElements>
+        </subsections>
+        <subsections xsi:type="org.unicase.model.document:LeafSection" name="Deployment">
+          <modelElements xsi:type="org.unicase.model.component:DeploymentNode" name="Server 1" description="Same hardware as Server 2 " components="//@modelElements.2/@subsections.0/@modelElements.3 //@modelElements.2/@subsections.0/@modelElements.4 //@modelElements.2/@subsections.0/@modelElements.2 //@modelElements.2/@subsections.0/@modelElements.8 //@modelElements.2/@subsections.0/@modelElements.7 //@modelElements.2/@subsections.0/@modelElements.9 //@modelElements.2/@subsections.0/@modelElements.6 //@modelElements.2/@subsections.0/@modelElements.5 //@modelElements.2/@subsections.0/@modelElements.0"/>
+          <modelElements xsi:type="org.unicase.model.component:DeploymentNode" name="Server 2" description="Same hardware as Server 1" components="//@modelElements.3/@subsections.0/@subsections.2/@subsections.0/@modelElements.10"/>
+          <modelElements xsi:type="org.unicase.model.component:DeploymentNode" name="Server 3"/>
+        </subsections>
+      </subsections>
+    </subsections>
+  </modelElements>
+  <modelElements xsi:type="org.unicase.model.document:CompositeSection" name="Decisions">
+    <subsections xsi:type="org.unicase.model.document:LeafSection" name="Components"/>
+    <subsections xsi:type="org.unicase.model.document:LeafSection" name="Deployment"/>
+  </modelElements>
+</org.eclipse.emf.emfstore.common.model:Project>
