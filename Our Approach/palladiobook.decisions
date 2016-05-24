@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decisions:DecisionRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:decisions="http://sdq.ipd.kit.edu/toometa/decisions/1.0" xmlns:pcmarchoptions="http://sdq.ipd.kit.edu/toometa/pcmarchoptions/1.0" id="_SBFHoM8wEeWjd_ggvBMZkQ">
+  <decisions xsi:type="decisions:TextDecision" id="_SaPOgM8wEeWjd_ggvBMZkQ" description="Initial Architecture" status="obsolete" timestamp="2015-12-01T10:30:00.000+0100">
+    <selected xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_ll5Ohp3BEeWGJMkphKCIuw"/>
+    <selected xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_o1ndZp3CEeWGJMkphKCIuw"/>
+    <selected xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_vs8hlp3CEeWGJMkphKCIuw"/>
+    <selected xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_KzFodp3DEeWGJMkphKCIuw"/>
+    <selected xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_G7zqVp3CEeWGJMkphKCIuw"/>
+    <selected xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_xJSHRp3DEeWGJMkphKCIuw"/>
+    <selected xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_9Eq7Np3DEeWGJMkphKCIuw"/>
+    <selected xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_gdSrFp3DEeWGJMkphKCIuw"/>
+    <rationales xsi:type="decisions:TextRationale" id="_I8qEUc8xEeWjd_ggvBMZkQ" description="Initial architecture designed after the description in palladiobook"/>
+  </decisions>
+  <decisions xsi:type="decisions:TextDecision" id="_p-E20M8xEeWmUPtPkE76KQ" description="Initial Deployment" status="obsolete" timestamp="2015-12-01T10:30:00.000+0100">
+    <selected xsi:type="pcmarchoptions:PCM_AllocateTogether" href="palladiobook.options#_TqWWE55dEeW2q7b4yYzG5w"/>
+    <rationales xsi:type="decisions:TextRationale" id="_-u3lMc8xEeWmUPtPkE76KQ" description="All components on the same server for testing of the performance"/>
+  </decisions>
+</decisions:DecisionRepository>

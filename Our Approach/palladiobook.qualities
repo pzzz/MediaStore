@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<qualities:QualityTypeRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:qualities="http://sdq.ipd.kit.edu/toometa/qualities/1.0" id="_V3T3MJhaEeWwK_5e4Zr_FA">
+  <qualityType xsi:type="qualities:Performance" id="_0wHJsJkZEeWEx4fFxn-fwA" description="">
+    <dimension href="palladiobook.dimensions#_xUEvEKBBEeWrKoX5ur_C-w"/>
+  </qualityType>
+  <qualityType xsi:type="qualities:Maintainability" id="_vgjpl5kbEeWEx4fFxn-fwA"/>
+  <qualityType xsi:type="qualities:Security" id="_wNLfGZkbEeWEx4fFxn-fwA"/>
+  <qualityType xsi:type="qualities:TextQuality" id="_1PBIQ550EeW2q7b4yYzG5w" description="Reusability"/>
+  <qualityType xsi:type="qualities:TextQuality" id="_J31mY551EeW2q7b4yYzG5w" description="Reuse"/>
+</qualities:QualityTypeRepository>

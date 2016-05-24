@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<designdecision:DecisionSpace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:designdecision="http://sdq.ipd.uka.de/DesignDecision/3.0" xmlns:specific="http://sdq.ipd.uka.de/DesignDecision/Specific/3.0" id="_Qig8sCHWEea9iLRLQbWoGg" name="DefaultSpace">
+  <degreesOfFreedom xsi:type="specific:AssembledComponentDegree" entityName="WatermarkerComponentDegree">
+    <primaryChanged href="ms_base_wmsubsyst.system#_0w3x4A_mEeaYof8WGQdSOQ"/>
+    <changeableElements href="ms.repository#_TYkQxA_jEeaYof8WGQdSOQ"/>
+    <changeableElements href="ms.repository#_uTJINA_gEeaYof8WGQdSOQ"/>
+    <changeableElements href="ms.repository#_S-lawHDqEeSqnN80MQ2uGw"/>
+    <changeableElements href="ms.repository#_S-lawHDqEeSqnN80MQ2uGw2"/>
+    <classDesignOptions href="ms.repository#_S-lawHDqEeSqnN80MQ2uGw"/>
+    <classDesignOptions href="ms.repository#_S-lawHDqEeSqnN80MQ2uGw2"/>
+    <classDesignOptions href="ms.repository#_TYkQxA_jEeaYof8WGQdSOQ"/>
+    <classDesignOptions href="ms.repository#_uTJINA_gEeaYof8WGQdSOQ"/>
+  </degreesOfFreedom>
+</designdecision:DecisionSpace>

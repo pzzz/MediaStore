@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users:UserRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:issues="http://sdq.ipd.kit.edu/toometa/issues/1.0" xmlns:pcmarchoptions="http://sdq.ipd.kit.edu/toometa/pcmarchoptions/1.0" xmlns:requirements="http://sdq.ipd.kit.edu/toometa/requirements/1.0" xmlns:users="http://sdq.ipd.kit.edu/toometa/users/1.0" id="_OKtX4JhaEeWwK_5e4Zr_FA">
+  <users id="_aaZE8JkXEeWEx4fFxn-fwA" roles="_du0DEZkXEeWEx4fFxn-fwA _eOWewpkXEeWEx4fFxn-fwA _evYIM5kXEeWEx4fFxn-fwA _fO_cZJkXEeWEx4fFxn-fwA" name="René Hahn">
+    <stakeholderOf xsi:type="requirements:FunctionalRequirement" href="palladiobook.requirements#_p3wK05kXEeWEx4fFxn-fwA"/>
+    <stakeholderOf xsi:type="requirements:FunctionalRequirement" href="palladiobook.requirements#_p3wK1JkXEeWEx4fFxn-fwA"/>
+    <stakeholderOf xsi:type="requirements:FunctionalRequirement" href="palladiobook.requirements#_p3wK15kXEeWEx4fFxn-fwA"/>
+    <stakeholderOf xsi:type="requirements:FunctionalRequirement" href="palladiobook.requirements#_p3wx4JkXEeWEx4fFxn-fwA"/>
+    <stakeholderOf xsi:type="requirements:QualityRequirement" href="palladiobook.requirements#_p38YEJkXEeWEx4fFxn-fwA"/>
+    <stakeholderOf xsi:type="requirements:QualityRequirement" href="palladiobook.requirements#_p5geUJkXEeWEx4fFxn-fwA"/>
+    <stakeholderOf xsi:type="requirements:QualityRequirement" href="palladiobook.requirements#_p5geUZkXEeWEx4fFxn-fwA"/>
+    <stakeholderOf xsi:type="requirements:Constraint" href="palladiobook.requirements#_p511gJkXEeWEx4fFxn-fwA"/>
+    <stakeholderOf xsi:type="issues:TextIssue" href="palladiobook.issues#_K_o48JqdEeWeouv5DBJBUA"/>
+    <stakeholderOf xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_ll5Ohp3BEeWGJMkphKCIuw"/>
+    <stakeholderOf xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_G7zqVp3CEeWGJMkphKCIuw"/>
+    <stakeholderOf xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_o1ndZp3CEeWGJMkphKCIuw"/>
+    <stakeholderOf xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_vs8hlp3CEeWGJMkphKCIuw"/>
+    <stakeholderOf xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_KzFodp3DEeWGJMkphKCIuw"/>
+    <stakeholderOf xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_gdSrFp3DEeWGJMkphKCIuw"/>
+    <stakeholderOf xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_xJSHRp3DEeWGJMkphKCIuw"/>
+    <stakeholderOf xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_9Eq7Np3DEeWGJMkphKCIuw"/>
+    <stakeholderOf xsi:type="pcmarchoptions:PCM_AllocateTogether" href="palladiobook.options#_TqWWE55dEeW2q7b4yYzG5w"/>
+  </users>
+  <users id="_cGn9QJkXEeWEx4fFxn-fwA" roles="_du0DEZkXEeWEx4fFxn-fwA _eOWewpkXEeWEx4fFxn-fwA _fO_cZJkXEeWEx4fFxn-fwA _evYIM5kXEeWEx4fFxn-fwA" name="Peter Schuller">
+    <stakeholderOf xsi:type="requirements:FunctionalRequirement" href="palladiobook.requirements#_p3wK1ZkXEeWEx4fFxn-fwA"/>
+    <stakeholderOf xsi:type="requirements:FunctionalRequirement" href="palladiobook.requirements#_p3wK1pkXEeWEx4fFxn-fwA"/>
+    <stakeholderOf xsi:type="requirements:FunctionalRequirement" href="palladiobook.requirements#_p3wK15kXEeWEx4fFxn-fwA"/>
+    <stakeholderOf xsi:type="requirements:FunctionalRequirement" href="palladiobook.requirements#_p3wx4JkXEeWEx4fFxn-fwA"/>
+    <stakeholderOf xsi:type="requirements:QualityRequirement" href="palladiobook.requirements#_p3wx4ZkXEeWEx4fFxn-fwA"/>
+    <stakeholderOf xsi:type="requirements:QualityRequirement" href="palladiobook.requirements#_p5geUpkXEeWEx4fFxn-fwA"/>
+  </users>
+  <roleTypes xsi:type="users:Architect" id="_du0DEZkXEeWEx4fFxn-fwA" description="The role of an architect."/>
+  <roleTypes xsi:type="users:Engineer" id="_eOWewpkXEeWEx4fFxn-fwA" description="The role of an engineer."/>
+  <roleTypes xsi:type="users:ReqEngineer" id="_evYIM5kXEeWEx4fFxn-fwA" description="The role of an requirements engineer."/>
+  <roleTypes xsi:type="users:Other" id="_fO_cZJkXEeWEx4fFxn-fwA" description="The role of others."/>
+</users:UserRepository>

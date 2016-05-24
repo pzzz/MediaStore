@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<requirements:ReqRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:issues="http://sdq.ipd.kit.edu/toometa/issues/1.0" xmlns:pcmarchoptions="http://sdq.ipd.kit.edu/toometa/pcmarchoptions/1.0" xmlns:qualities="http://sdq.ipd.kit.edu/toometa/qualities/1.0" xmlns:requirements="http://sdq.ipd.kit.edu/toometa/requirements/1.0" xmlns:users="http://sdq.ipd.kit.edu/toometa/users/1.0" id="_p3vjwJkXEeWEx4fFxn-fwA" description="Media Store Requirements Repository">
+  <projectReqSection id="_p3wK0JkXEeWEx4fFxn-fwA"/>
+  <processReqSection id="_p3wK0ZkXEeWEx4fFxn-fwA"/>
+  <systemReqSection id="_p3wK0pkXEeWEx4fFxn-fwA">
+    <systemRequirements xsi:type="requirements:FunctionalRequirement" id="_p3wK05kXEeWEx4fFxn-fwA" hasDependents="_p3wK1ZkXEeWEx4fFxn-fwA _p3wK1JkXEeWEx4fFxn-fwA" specification="Users can download audio files from the Media Store after selecting them." repository="_p3vjwJkXEeWEx4fFxn-fwA">
+      <triggerOf xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_ll5Ohp3BEeWGJMkphKCIuw"/>
+      <triggerOf xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_G7zqVp3CEeWGJMkphKCIuw"/>
+      <hasStakeholders xsi:type="users:User" href="palladiobook.users#_aaZE8JkXEeWEx4fFxn-fwA"/>
+    </systemRequirements>
+    <systemRequirements xsi:type="requirements:FunctionalRequirement" id="_p3wK1JkXEeWEx4fFxn-fwA" dependsOn="_p3wK05kXEeWEx4fFxn-fwA" specification="Users can select the preferred bitrate while downloading the audio files." repository="_p3vjwJkXEeWEx4fFxn-fwA">
+      <triggerOf xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_ll5Ohp3BEeWGJMkphKCIuw"/>
+      <hasStakeholders xsi:type="users:User" href="palladiobook.users#_aaZE8JkXEeWEx4fFxn-fwA"/>
+    </systemRequirements>
+    <systemRequirements xsi:type="requirements:FunctionalRequirement" id="_p3wK1ZkXEeWEx4fFxn-fwA" dependsOn="_p3wK05kXEeWEx4fFxn-fwA" specification="If a user selects more than one audio file to download, the files shall be compressed to one archive file before download." repository="_p3vjwJkXEeWEx4fFxn-fwA">
+      <triggerOf xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_KzFodp3DEeWGJMkphKCIuw"/>
+      <triggerOf xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_ll5Ohp3BEeWGJMkphKCIuw"/>
+      <triggerOf xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_G7zqVp3CEeWGJMkphKCIuw"/>
+      <hasStakeholders xsi:type="users:User" href="palladiobook.users#_cGn9QJkXEeWEx4fFxn-fwA"/>
+    </systemRequirements>
+    <systemRequirements xsi:type="requirements:FunctionalRequirement" id="_p3wK1pkXEeWEx4fFxn-fwA" hasDependents="_p3wK15kXEeWEx4fFxn-fwA" specification="Users can also upload audio files to share them with other users." repository="_p3vjwJkXEeWEx4fFxn-fwA">
+      <triggerOf xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_ll5Ohp3BEeWGJMkphKCIuw"/>
+      <triggerOf xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_G7zqVp3CEeWGJMkphKCIuw"/>
+      <triggerOf xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_xJSHRp3DEeWGJMkphKCIuw"/>
+      <hasStakeholders xsi:type="users:User" href="palladiobook.users#_cGn9QJkXEeWEx4fFxn-fwA"/>
+    </systemRequirements>
+    <systemRequirements xsi:type="requirements:FunctionalRequirement" id="_p3wK15kXEeWEx4fFxn-fwA" dependsOn="_p3wK1pkXEeWEx4fFxn-fwA" specification="Users can specify metadata of an audio file, when uploading it." repository="_p3vjwJkXEeWEx4fFxn-fwA">
+      <triggerOf xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_ll5Ohp3BEeWGJMkphKCIuw"/>
+      <hasStakeholders xsi:type="users:User" href="palladiobook.users#_aaZE8JkXEeWEx4fFxn-fwA"/>
+      <hasStakeholders xsi:type="users:User" href="palladiobook.users#_cGn9QJkXEeWEx4fFxn-fwA"/>
+    </systemRequirements>
+    <systemRequirements xsi:type="requirements:FunctionalRequirement" id="_p3wx4JkXEeWEx4fFxn-fwA" specification="Users can browse in the store and get a list of all available audio files." repository="_p3vjwJkXEeWEx4fFxn-fwA">
+      <triggerOf xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_ll5Ohp3BEeWGJMkphKCIuw"/>
+      <triggerOf xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_G7zqVp3CEeWGJMkphKCIuw"/>
+      <triggerOf xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_xJSHRp3DEeWGJMkphKCIuw"/>
+      <hasStakeholders xsi:type="users:User" href="palladiobook.users#_cGn9QJkXEeWEx4fFxn-fwA"/>
+      <hasStakeholders xsi:type="users:User" href="palladiobook.users#_aaZE8JkXEeWEx4fFxn-fwA"/>
+    </systemRequirements>
+    <systemRequirements xsi:type="requirements:QualityRequirement" id="_p3wx4ZkXEeWEx4fFxn-fwA" specification="The response time shall be as low as possible, but less than 60 seconds for 95% of all requests for the expected workload, as introduced below. In the following, the response time is defined as the time span between arrival of a request in a component and the respond of the component to that request." repository="_p3vjwJkXEeWEx4fFxn-fwA">
+      <hasDependents xsi:type="issues:TextIssue" href="palladiobook.issues#_K_o48JqdEeWeouv5DBJBUA"/>
+      <triggerOf xsi:type="pcmarchoptions:PCM_AllocateTogether" href="palladiobook.options#_TqWWE55dEeW2q7b4yYzG5w"/>
+      <hasStakeholders xsi:type="users:User" href="palladiobook.users#_cGn9QJkXEeWEx4fFxn-fwA"/>
+      <qualityType xsi:type="qualities:Performance" href="palladiobook.qualities#_0wHJsJkZEeWEx4fFxn-fwA"/>
+    </systemRequirements>
+    <systemRequirements xsi:type="requirements:QualityRequirement" id="_p38YEJkXEeWEx4fFxn-fwA" specification="The components of the Media Store shall be loosely coupled to facilitate evolution. They should communicate with each other only using interfaces. This shall avoid that a change to a software component propagates through the system." repository="_p3vjwJkXEeWEx4fFxn-fwA">
+      <hasStakeholders xsi:type="users:User" href="palladiobook.users#_aaZE8JkXEeWEx4fFxn-fwA"/>
+      <qualityType xsi:type="qualities:Maintainability" href="palladiobook.qualities#_vgjpl5kbEeWEx4fFxn-fwA"/>
+    </systemRequirements>
+    <systemRequirements xsi:type="requirements:QualityRequirement" id="_p5geUJkXEeWEx4fFxn-fwA" specification="Components that are developed from scratch for the Media Store shall be reusable in future projects, if appropriate." repository="_p3vjwJkXEeWEx4fFxn-fwA">
+      <hasStakeholders xsi:type="users:User" href="palladiobook.users#_aaZE8JkXEeWEx4fFxn-fwA"/>
+      <qualityType xsi:type="qualities:TextQuality" href="palladiobook.qualities#_1PBIQ550EeW2q7b4yYzG5w"/>
+    </systemRequirements>
+    <systemRequirements xsi:type="requirements:QualityRequirement" id="_p5geUZkXEeWEx4fFxn-fwA" specification="The Media Store shall be, if possible, implemented using reused components from third parties to save development costs and future maintenance effort. Thus, when designing the interfaces between components, existing components shall be taken into account." repository="_p3vjwJkXEeWEx4fFxn-fwA">
+      <hasStakeholders xsi:type="users:User" href="palladiobook.users#_aaZE8JkXEeWEx4fFxn-fwA"/>
+      <qualityType xsi:type="qualities:TextQuality" href="palladiobook.qualities#_J31mY551EeW2q7b4yYzG5w"/>
+    </systemRequirements>
+    <systemRequirements xsi:type="requirements:QualityRequirement" id="_p5geUpkXEeWEx4fFxn-fwA" specification="Only authenticated users should access the system and thus audio files. Furthermore, passwords should be encrypted before being stored in the database." repository="_p3vjwJkXEeWEx4fFxn-fwA">
+      <triggerOf xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_o1ndZp3CEeWGJMkphKCIuw"/>
+      <hasStakeholders xsi:type="users:User" href="palladiobook.users#_cGn9QJkXEeWEx4fFxn-fwA"/>
+      <qualityType xsi:type="qualities:Security" href="palladiobook.qualities#_wNLfGZkbEeWEx4fFxn-fwA"/>
+    </systemRequirements>
+    <systemRequirements xsi:type="requirements:Constraint" id="_p511gJkXEeWEx4fFxn-fwA" specification="Copyright is an important concern and the Media Store shall comply to respective laws and regulations. Therefore any copyright violation shall be detected. For example, an unauthorized download of copyrighted audio files should be avoided." repository="_p3vjwJkXEeWEx4fFxn-fwA">
+      <triggerOf xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" href="palladiobook.options#_o1ndZp3CEeWGJMkphKCIuw"/>
+      <hasStakeholders xsi:type="users:User" href="palladiobook.users#_aaZE8JkXEeWEx4fFxn-fwA"/>
+    </systemRequirements>
+  </systemReqSection>
+</requirements:ReqRepository>

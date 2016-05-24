@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues:IssueModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:issues="http://sdq.ipd.kit.edu/toometa/issues/1.0" xmlns:requirements="http://sdq.ipd.kit.edu/toometa/requirements/1.0" xmlns:users="http://sdq.ipd.kit.edu/toometa/users/1.0" id="_HMPJ4JhaEeWwK_5e4Zr_FA">
+  <issues xsi:type="issues:TextIssue" id="_K_o48JqdEeWeouv5DBJBUA" summary="Summary not available yet." description="Response time of the media store for downloading files is too high">
+    <dependsOn xsi:type="requirements:QualityRequirement" href="palladiobook.requirements#_p3wx4ZkXEeWEx4fFxn-fwA"/>
+    <hasStakeholders xsi:type="users:User" href="palladiobook.users#_aaZE8JkXEeWEx4fFxn-fwA"/>
+  </issues>
+</issues:IssueModel>

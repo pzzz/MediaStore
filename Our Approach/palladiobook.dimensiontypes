@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dimensiontypes:DimensionTypeRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dimensiontypes="http://sdq.ipd.kit.edu/QML/dimensiontypes/1.0" id="_e1bUYKA_EeWl3Z8UZgiU7g">
+  <dimensionTypes xsi:type="dimensiontypes:DimensionTypeNumeric" id="_j1k0gqA_EeWl3Z8UZgiU7g">
+    <relationSemantics id="_kT7kcKA_EeWl3Z8UZgiU7g"/>
+  </dimensionTypes>
+</dimensiontypes:DimensionTypeRepository>

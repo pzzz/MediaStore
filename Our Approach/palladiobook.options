@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<options:OptionRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:decisions="http://sdq.ipd.kit.edu/toometa/decisions/1.0" xmlns:options="http://sdq.ipd.kit.edu/toometa/options/1.0" xmlns:pcmarchoptions="http://sdq.ipd.kit.edu/toometa/pcmarchoptions/1.0" xmlns:requirements="http://sdq.ipd.kit.edu/toometa/requirements/1.0" xmlns:users="http://sdq.ipd.kit.edu/toometa/users/1.0" id="_9Dv28JhZEeWwK_5e4Zr_FA">
+  <options xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" id="_ll5Ohp3BEeWGJMkphKCIuw" description="WebGUI" isModelled="true" timeStamp="2015-12-01T10:30:00.000+0100">
+    <triggeredBy xsi:type="requirements:FunctionalRequirement" href="palladiobook.requirements#_p3wK05kXEeWEx4fFxn-fwA"/>
+    <triggeredBy xsi:type="requirements:FunctionalRequirement" href="palladiobook.requirements#_p3wx4JkXEeWEx4fFxn-fwA"/>
+    <triggeredBy xsi:type="requirements:FunctionalRequirement" href="palladiobook.requirements#_p3wK15kXEeWEx4fFxn-fwA"/>
+    <triggeredBy xsi:type="requirements:FunctionalRequirement" href="palladiobook.requirements#_p3wK1JkXEeWEx4fFxn-fwA"/>
+    <triggeredBy xsi:type="requirements:FunctionalRequirement" href="palladiobook.requirements#_p3wK1pkXEeWEx4fFxn-fwA"/>
+    <triggeredBy xsi:type="requirements:FunctionalRequirement" href="palladiobook.requirements#_p3wK1ZkXEeWEx4fFxn-fwA"/>
+    <hasStakeholders xsi:type="users:User" href="palladiobook.users#_aaZE8JkXEeWEx4fFxn-fwA"/>
+    <selectedBy xsi:type="decisions:TextDecision" href="palladiobook.decisions#_SaPOgM8wEeWjd_ggvBMZkQ"/>
+    <rationale id="_XnBDYZ3CEeWGJMkphKCIuw" rationaleText="One of the main components of the Media Store is a server-side web front end, namely the WebGUI component, which delivers web sites to the users and provides session management. In order to meet the user authentication requirement, registration and log-in have to be offered. To this end, the WebGUI component delivers the corresponding registration and log-in pages to users. After the user has logged into the system, he or she will be forwarded to a site to list the audio files. However, the main functionality is provided by other components. In addition, users can browse, download, and upload audio files using the WebGUI component."/>
+    <assemblyContext href="../PCM/ms_base_wmsubsyst.system#_VD-4oHD4EeSA4fySuX9I2Q"/>
+  </options>
+  <options xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" id="_G7zqVp3CEeWGJMkphKCIuw" description="MediaManagement" isModelled="true" timeStamp="2015-12-01T10:30:00.000+0100">
+    <triggeredBy xsi:type="requirements:FunctionalRequirement" href="palladiobook.requirements#_p3wx4JkXEeWEx4fFxn-fwA"/>
+    <triggeredBy xsi:type="requirements:FunctionalRequirement" href="palladiobook.requirements#_p3wK05kXEeWEx4fFxn-fwA"/>
+    <triggeredBy xsi:type="requirements:FunctionalRequirement" href="palladiobook.requirements#_p3wK1pkXEeWEx4fFxn-fwA"/>
+    <triggeredBy xsi:type="requirements:FunctionalRequirement" href="palladiobook.requirements#_p3wK1ZkXEeWEx4fFxn-fwA"/>
+    <hasStakeholders xsi:type="users:User" href="palladiobook.users#_aaZE8JkXEeWEx4fFxn-fwA"/>
+    <selectedBy xsi:type="decisions:TextDecision" href="palladiobook.decisions#_SaPOgM8wEeWjd_ggvBMZkQ"/>
+    <rationale id="_hPbvIZ3CEeWGJMkphKCIuw" rationaleText="Application business logic comprises of a central business logic component, called the MediaManagement component. The MediaManagement component coordinates the communication of other components. Furthermore, it fetches audio files from a specific location (e.g., a dedicated file server or a local disk), when processing download requests."/>
+    <assemblyContext href="../PCM/ms_base_wmsubsyst.system#_C1kK8HD5EeSA4fySuX9I2Q"/>
+  </options>
+  <options xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" id="_o1ndZp3CEeWGJMkphKCIuw" description="UserManagement" isModelled="true" timeStamp="2015-12-01T10:30:00.000+0100">
+    <triggeredBy xsi:type="requirements:QualityRequirement" href="palladiobook.requirements#_p5geUpkXEeWEx4fFxn-fwA"/>
+    <triggeredBy xsi:type="requirements:Constraint" href="palladiobook.requirements#_p511gJkXEeWEx4fFxn-fwA"/>
+    <hasStakeholders xsi:type="users:User" href="palladiobook.users#_aaZE8JkXEeWEx4fFxn-fwA"/>
+    <selectedBy xsi:type="decisions:TextDecision" href="palladiobook.decisions#_SaPOgM8wEeWjd_ggvBMZkQ"/>
+    <rationale id="_qmXCQZ3CEeWGJMkphKCIuw" rationaleText="The UserManagement component answers the requests for registration and authentication. When a user logs into the system, the Media Store does not store the password in plain text, but rather the UserManagement component implements further functions"/>
+    <assemblyContext href="../PCM/ms_base_wmsubsyst.system#_bUxacL0ZEeSAHuL4ItXOLQ"/>
+  </options>
+  <options xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" id="_vs8hlp3CEeWGJMkphKCIuw" description="UserDBAdapter" isModelled="true" timeStamp="2015-12-01T10:30:00.000+0100">
+    <hasStakeholders xsi:type="users:User" href="palladiobook.users#_aaZE8JkXEeWEx4fFxn-fwA"/>
+    <selectedBy xsi:type="decisions:TextDecision" href="palladiobook.decisions#_SaPOgM8wEeWjd_ggvBMZkQ"/>
+    <rationale id="_x58koZ3CEeWGJMkphKCIuw" rationaleText="The UserDBAdapter component queries the database."/>
+    <assemblyContext href="../PCM/ms_base_wmsubsyst.system#_pulfcHD4EeSA4fySuX9I2Q"/>
+  </options>
+  <options xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" id="_KzFodp3DEeWGJMkphKCIuw" description="Packaging" isModelled="true" timeStamp="2015-12-01T10:30:00.000+0100">
+    <triggeredBy xsi:type="requirements:FunctionalRequirement" href="palladiobook.requirements#_p3wK1ZkXEeWEx4fFxn-fwA"/>
+    <hasStakeholders xsi:type="users:User" href="palladiobook.users#_aaZE8JkXEeWEx4fFxn-fwA"/>
+    <selectedBy xsi:type="decisions:TextDecision" href="palladiobook.decisions#_SaPOgM8wEeWjd_ggvBMZkQ"/>
+    <rationale id="_NGiRwZ3DEeWGJMkphKCIuw" rationaleText="To allow users to download several files at a time, we provide the Packaging component which archived multiple audio files into a single compressed file."/>
+    <assemblyContext href="../PCM/ms_base_wmsubsyst.system#_IPnY0HD5EeSA4fySuX9I2Q"/>
+  </options>
+  <options xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" id="_gdSrFp3DEeWGJMkphKCIuw" description="Database" isModelled="true" timeStamp="2015-12-01T10:30:00.000+0100">
+    <hasStakeholders xsi:type="users:User" href="palladiobook.users#_aaZE8JkXEeWEx4fFxn-fwA"/>
+    <selectedBy xsi:type="decisions:TextDecision" href="palladiobook.decisions#_SaPOgM8wEeWjd_ggvBMZkQ"/>
+    <rationale id="_iU33wZ3DEeWGJMkphKCIuw" rationaleText="The Database component represents an actual database (e.g., MySQL). It stores user information and metadata of audio files such as the name, the genre."/>
+    <assemblyContext href="../PCM/ms_base_wmsubsyst.system#_aMTWgLg3EeSNPorBlo7x9g"/>
+  </options>
+  <options xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" id="_xJSHRp3DEeWGJMkphKCIuw" description="MediaAccess" isModelled="true" timeStamp="2015-12-01T10:30:00.000+0100">
+    <triggeredBy xsi:type="requirements:FunctionalRequirement" href="palladiobook.requirements#_p3wx4JkXEeWEx4fFxn-fwA"/>
+    <triggeredBy xsi:type="requirements:FunctionalRequirement" href="palladiobook.requirements#_p3wK1pkXEeWEx4fFxn-fwA"/>
+    <hasStakeholders xsi:type="users:User" href="palladiobook.users#_aaZE8JkXEeWEx4fFxn-fwA"/>
+    <selectedBy xsi:type="decisions:TextDecision" href="palladiobook.decisions#_SaPOgM8wEeWjd_ggvBMZkQ"/>
+    <rationale id="_zNHnQZ3DEeWGJMkphKCIuw" rationaleText="When a user uploads an audio file, the MediaAccess component stores it at the predefined location. The MediaAccess component encapsulates database accesses for metadata of audio files. Furthermore, it fetches a list of all available audio files."/>
+    <assemblyContext href="../PCM/ms_base_wmsubsyst.system#_4LdYsHD4EeSA4fySuX9I2Q"/>
+  </options>
+  <options xsi:type="pcmarchoptions:PCM_IntroduceNewComponent" id="_9Eq7Np3DEeWGJMkphKCIuw" description="DataStorage" isModelled="true" timeStamp="2015-12-01T10:30:00.000+0100">
+    <hasStakeholders xsi:type="users:User" href="palladiobook.users#_aaZE8JkXEeWEx4fFxn-fwA"/>
+    <selectedBy xsi:type="decisions:TextDecision" href="palladiobook.decisions#_SaPOgM8wEeWjd_ggvBMZkQ"/>
+    <rationale id="__lQBkZ3DEeWGJMkphKCIuw" rationaleText="all audio files are stored in a specific location (e.g., a dedicated file server or a local disk) to decouple the DataStorage from the database."/>
+    <assemblyContext href="../PCM/ms_base_wmsubsyst.system#_1ek7QLg_EeSNPorBlo7x9g"/>
+  </options>
+  <options xsi:type="pcmarchoptions:PCM_AllocateTogether" id="_TqWWE55dEeW2q7b4yYzG5w" description="Allocate all components on the same server" isModelled="true" timeStamp="2015-12-01T10:30:00.000+0100">
+    <triggeredBy xsi:type="requirements:QualityRequirement" href="palladiobook.requirements#_p3wx4ZkXEeWEx4fFxn-fwA"/>
+    <hasStakeholders xsi:type="users:User" href="palladiobook.users#_aaZE8JkXEeWEx4fFxn-fwA"/>
+    <selectedBy xsi:type="decisions:TextDecision" href="palladiobook.decisions#_p-E20M8xEeWmUPtPkE76KQ"/>
+    <rationale id="_rtdw0Z5dEeW2q7b4yYzG5w" rationaleText="Initial deployment "/>
+    <allocationContexts href="../PCM/ms_base_wmsubsyst.allocation#_bBqMQA_nEeaYof8WGQdSOQ"/>
+    <allocationContexts href="../PCM/ms_base_wmsubsyst.allocation#_c1D7sL3NEeSvHZ5kF_aE4g"/>
+    <allocationContexts href="../PCM/ms_base_wmsubsyst.allocation#_cTBloL3NEeSvHZ5kF_aE4g"/>
+    <allocationContexts href="../PCM/ms_base_wmsubsyst.allocation#_dx0e4L3NEeSvHZ5kF_aE4g"/>
+    <allocationContexts href="../PCM/ms_base_wmsubsyst.allocation#_dXxnML3NEeSvHZ5kF_aE4g"/>
+    <allocationContexts href="../PCM/ms_base_wmsubsyst.allocation#_e6Tw8L3NEeSvHZ5kF_aE4g"/>
+    <allocationContexts href="../PCM/ms_base_wmsubsyst.allocation#_eKs48L3NEeSvHZ5kF_aE4g"/>
+    <allocationContexts href="../PCM/ms_base_wmsubsyst.allocation#_h3M_4L3NEeSvHZ5kF_aE4g"/>
+    <allocationContexts href="../PCM/ms_base_wmsubsyst.allocation#_jc81sL3NEeSvHZ5kF_aE4g"/>
+  </options>
+</options:OptionRepository>
